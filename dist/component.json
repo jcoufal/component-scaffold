@@ -7,6 +7,7 @@
     "jquery": "~1.9.1"
   },
   "devDependencies": {
+    "alchemy": ">=0.0.1",
     "angular-mocks": "~1.0.5",
     "angular-scenario": "~1.0.5"
   }

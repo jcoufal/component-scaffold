@@ -1,0 +1,95 @@
+@import "context_menus_vars";
+
+.context_menu,
+.dropdown-menu { // bootstrap compatible markup
+  display: block;
+  position: absolute;
+  list-style: none;
+  padding:0;
+  margin:0;
+  border: 1px solid darken($item_background_color, 8%);
+  @include border-radius($border_radius);
+  @include box-shadow(0 1px 2px rgba($black_color, 0.15),
+                      0 .5em 3em rgba($black_color, 0.2),
+                      0 0 0 1px rgba($white_color, 0.05) inset);
+
+  li {
+    display: block;
+    padding: 0.5em 1.5em 0.5em 1em;
+    position: relative;
+    white-space: nowrap;
+    color: $item_text_color;
+    @include linear_gradient($item_background_color, lighten($item_background_color, 1%), $item_background_color);
+
+    &:not(:first-child) {
+      border-top: 1px solid darken($item_background_color, 3%);
+    }
+
+    &.divider {
+      padding: 0;
+      border-top: 1px solid darken($item_background_color, 12%);
+    }
+
+    &:hover {
+      @include linear_gradient($primary_color, lighten($primary_color, 3%), darken($primary_color, 5%));
+      color: $primary_color_text_color;
+    }
+
+    &.context_submenu,
+    &.dropdown-submenu {
+      &:after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 0.75em;
+        right: 0.35em;
+        border-top: 0.35em solid transparent;
+        border-bottom: 0.35em solid transparent;
+        border-left: 0.4em solid rgba($item_text_color, 0.2);
+      }
+
+      &:hover:after {
+        border-left-color: rgba($primary_color_text_color, 0.5);
+      }
+
+      & > ul {
+        display: none;
+      }
+
+      &:hover > ul {
+        display: block;
+      }
+
+      &,
+      &.pull_right,
+      &.pull-right {
+        & > ul {
+          left: 100%;
+          top: 0;
+        }
+      }
+
+      &.pull_left,
+      &.pull-left {
+        & > ul {
+          left: auto;
+          right: 100%;
+          top: 0;
+        }
+      }
+    }
+
+    a,
+    span {
+      color: inherit;
+      display: block;
+      text-decoration: none;
+    }
+  }
+
+  li.divider + li {
+    border-top: 0 none;
+  }
+}

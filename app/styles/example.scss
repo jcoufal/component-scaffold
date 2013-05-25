@@ -1,1 +1,5 @@
-//This is where any styling specific to the component playground should go.
+@import "main";
+
+h1 + ul.context_menu {
+  left: 50%;
+}
